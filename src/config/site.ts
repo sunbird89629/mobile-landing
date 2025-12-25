@@ -1,12 +1,12 @@
 import { socialLinks } from "./socialLinks";
 
 export const siteConfig = {
-	name: "Your App Name",
-	description: "Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
-	keywords: ["mobile app", "landing page", "astro", "react", "typescript"],
-	logo: "/assets/favicon.png",
+	name: "MeTube",
+	description: "YouTube for iOS, supercharged with @dayanch96 YouTube Plus (ex. YTLite) and several other tweaks.",
+	keywords: ["YouTube", "Ad Block", "Tweak", "Play Blackground"],
+	logo: "/assets/favicon-512.png",
 	storeLinks: {
-		apple: "#",
+		apple: "/downloads/metube.ipa",
 		google: "#",
 	},
 	socialLinks,
