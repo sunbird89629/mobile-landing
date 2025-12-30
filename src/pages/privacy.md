@@ -1,3 +1,9 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+title: Privacy Policy
+description: Privacy Policy for the application - How we handle and protect your data
+---
+
 # Privacy Policy
 
 **Last updated:** February 1, 2025

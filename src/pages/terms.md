@@ -1,3 +1,9 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+title: Terms of Service
+description: Terms of Service for the application - Rules and guidelines for using our service
+---
+
 # Terms of Service
 
 **Effective date:** February 1, 2025
@@ -50,4 +56,3 @@ No uploading of:
 - Email: legal@example.com
 - Address: 123 Tech Street, Suite 100
 - Phone: (555) 123-4567
-

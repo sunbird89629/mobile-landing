@@ -1,3 +1,9 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+title: How to Install
+description: Guide on how to install signed IPA files using Xcode
+---
+
 # XCode 安装已签名的 IPA
 
 **Last updated:** February 1, 2025
