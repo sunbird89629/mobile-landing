@@ -1,22 +1,11 @@
 import type { Feature } from "@/types/app";
 import {
-	FiBarChart,
-	FiColumns,
-	FiCrop,
-	FiEyeOff,
-	FiFastForward,
-	FiMaximize2,
-	FiMinimize2,
-	FiMonitor,
-	FiRotateCcw,
-	FiSettings,
-	FiSkipForward,
-	FiSlash,
-	FiSliders,
-	FiThumbsDown,
-	FiToggleLeft,
-	FiVolumeX,
-	FiXOctagon
+  FiColumns,
+  FiMonitor,
+  FiRotateCcw,
+  FiSettings,
+  FiSkipForward,
+  FiThumbsDown
 } from "react-icons/fi";
 
 export const features: Feature[] = [
@@ -50,64 +39,64 @@ export const features: Feature[] = [
     description: "恢复旧版画质选择器 UI。",
     icon: FiRotateCcw, // 回到旧版本
   },
-  {
-    title: "YTNoHoverCards",
-    description: "禁用视频结束时的推荐悬浮卡片。",
-    icon: FiSlash, // 禁用某功能
-  },
-  {
-    title: "YTABGoodies",
-    description: "禁用多项 YouTube 的 A/B 测试功能。",
-    icon: FiToggleLeft, // A/B 开关概念
-  },
-  {
-    title: "NOYTPremium",
-    description: "去除 YouTube Premium 推送与弹窗。",
-    icon: FiXOctagon, // 禁用/阻止 打扰
-  },
-  {
-    title: "YTSpeed",
-    description: "增加播放速度（2.25x~5x）。",
-    icon: FiFastForward,
-  },
-  {
-    title: "YTMiniplayerEnabler",
-    description: "为所有视频启用 Miniplayer。",
-    icon: FiMinimize2, // 小窗 / Miniplayer
-  },
-  {
-    title: "DontEatMyContent",
-    description: "防止屏幕缺口/岛遮挡视频内容。",
-    icon: FiCrop, // 画面裁剪相关语义
-  },
-  {
-    title: "YTShortsProgress",
-    description: "为 Shorts 启用可见进度条和拖动条。",
-    icon: FiBarChart, // 进度条、数据条
-  },
-  {
-    title: "YTABConfig",
-    description: "管理 YouTube A/B test flags。",
-    icon: FiSliders, // 调整配置选项
-  },
-  {
-    title: "YouMute",
-    description: "在播放器中直接静音/取消静音。",
-    icon: FiVolumeX,
-  },
-  {
-    title: "LowContrastMode",
-    description: "降低界面对比度，使 UI 更柔和。",
-    icon: FiEyeOff, // 减弱视觉刺激
-  },
-  {
-    title: "YTNoShorts",
-    description: "禁用 YouTube Shorts。",
-    icon: FiSlash, // 禁用
-  },
-  {
-    title: "BigYTMiniPlayer",
-    description: "增大 Miniplayer 的尺寸。",
-    icon: FiMaximize2, // 更大窗口
-  },
+  // {
+  //   title: "YTNoHoverCards",
+  //   description: "禁用视频结束时的推荐悬浮卡片。",
+  //   icon: FiSlash, // 禁用某功能
+  // },
+  // {
+  //   title: "YTABGoodies",
+  //   description: "禁用多项 YouTube 的 A/B 测试功能。",
+  //   icon: FiToggleLeft, // A/B 开关概念
+  // },
+  // {
+  //   title: "NOYTPremium",
+  //   description: "去除 YouTube Premium 推送与弹窗。",
+  //   icon: FiXOctagon, // 禁用/阻止 打扰
+  // },
+  // {
+  //   title: "YTSpeed",
+  //   description: "增加播放速度（2.25x~5x）。",
+  //   icon: FiFastForward,
+  // },
+  // {
+  //   title: "YTMiniplayerEnabler",
+  //   description: "为所有视频启用 Miniplayer。",
+  //   icon: FiMinimize2, // 小窗 / Miniplayer
+  // },
+  // {
+  //   title: "DontEatMyContent",
+  //   description: "防止屏幕缺口/岛遮挡视频内容。",
+  //   icon: FiCrop, // 画面裁剪相关语义
+  // },
+  // {
+  //   title: "YTShortsProgress",
+  //   description: "为 Shorts 启用可见进度条和拖动条。",
+  //   icon: FiBarChart, // 进度条、数据条
+  // },
+  // {
+  //   title: "YTABConfig",
+  //   description: "管理 YouTube A/B test flags。",
+  //   icon: FiSliders, // 调整配置选项
+  // },
+  // {
+  //   title: "YouMute",
+  //   description: "在播放器中直接静音/取消静音。",
+  //   icon: FiVolumeX,
+  // },
+  // {
+  //   title: "LowContrastMode",
+  //   description: "降低界面对比度，使 UI 更柔和。",
+  //   icon: FiEyeOff, // 减弱视觉刺激
+  // },
+  // {
+  //   title: "YTNoShorts",
+  //   description: "禁用 YouTube Shorts。",
+  //   icon: FiSlash, // 禁用
+  // },
+  // {
+  //   title: "BigYTMiniPlayer",
+  //   description: "增大 Miniplayer 的尺寸。",
+  //   icon: FiMaximize2, // 更大窗口
+  // },
 ];

@@ -7,12 +7,10 @@ import FAQ from "@astro/sections/FAQ.astro";
 import Features from "@astro/sections/Features.astro";
 import { faqs } from "@config/faqs";
 import { features } from "@config/features";
-import { reviews } from "@config/reviews";
 import { screenshots } from "@config/screenshots";
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
 import Lightbox from "@react/interactive/Lightbox";
-import Reviews from "@react/interactive/Reviews";
 import Screenshots from "@react/interactive/Screenshots";
 
 const { name: title, description, storeLinks, logo } = siteConfig;
@@ -23,7 +21,7 @@ const { name: title, description, storeLinks, logo } = siteConfig;
     <AppHero title={title} description={description} storeLinks={storeLinks} logo={logo} />
     <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
     <Features items={features} />
-    <Reviews items={reviews} client:visible />
+    <!-- <Reviews items={reviews} client:visible /> -->
     <FAQ items={faqs} />
   </main>
 </Layout>

@@ -6,7 +6,7 @@ export const siteConfig = {
 	keywords: ["YouTube", "Ad Block", "Tweak", "Play Blackground"],
 	logo: "/assets/favicon-512.png",
 	storeLinks: {
-		apple: "/downloads/metube.ipa",
+		apple: "https://pub-29b0117184894cc286590f0d348135f7.r2.dev/metube/20_47_3/mt_tweaked.ipa",
 		google: "#",
 	},
 	socialLinks,

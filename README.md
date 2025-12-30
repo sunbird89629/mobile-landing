@@ -83,6 +83,18 @@ npm run preview
 
 > 🎉 **That's it!** Your landing page will be running at `http://localhost:4321`
 
+### ☁️ Cloudflare Deployment
+
+This project is optimized for **Cloudflare Pages**.
+
+1.  **Connect your repository** to Cloudflare Pages.
+2.  **Configure Build Settings**:
+    *   **Framework preset**: `Astro`
+    *   **Build command**: `npm run build`
+    *   **Build output directory**: `dist`
+3.  **Compatibility Date**: Set to `2025-12-28` or later.
+4.  **Environment Variables**: Ensure `NODE_VERSION` is set to `20` or higher.
+
 ---
 
 ## 🎨 Customization Made Easy
