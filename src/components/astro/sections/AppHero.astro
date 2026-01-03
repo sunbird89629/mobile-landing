@@ -7,7 +7,8 @@ import { FaApple } from "react-icons/fa";
 
 interface Props extends AppHeroProps {}
 
-const { title, description, storeLinks, logo } = Astro.props;
+const { title, description, tags = [], storeLinks, logo } = Astro.props;
+
 ---
 
 <div class="mb-16 flex flex-col items-center md:items-start md:flex-row gap-8">
@@ -21,6 +22,13 @@ const { title, description, storeLinks, logo } = Astro.props;
 		<div>
 			<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-3">{title}</h1>
 			<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-2xl mx-auto md:mx-0">{description}</p>
+			<ul class="mb-6 flex flex-wrap gap-2 justify-center md:justify-start text-sm text-gray-600 dark:text-gray-400">
+				{
+					tags.map((tag)=>(
+						<li class="rounded-full bg-gray-100 dark:bg-white/[0.06] px-3 py-1">{tag}</li>
+					))
+				}
+			</ul>
 		</div>
 
 		<div class="flex gap-3 justify-center md:justify-start">
@@ -35,7 +43,7 @@ const { title, description, storeLinks, logo } = Astro.props;
 				</div>
 				<span class="text-left min-w-0">
 					<div class="text-[10px] font-medium text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">Direct Download</div>
-					<div class="text-xs font-semibold tracking-wide text-gray-900 dark:text-white/90 group-hover:text-gray-900 dark:group-hover:text-white">MeTube.IPA File</div>
+					<div class="text-xs font-semibold tracking-wide text-gray-900 dark:text-white/90 group-hover:text-gray-900 dark:group-hover:text-white">MeTube.IPA</div>
 				</span>
 			</a>
 		</div>

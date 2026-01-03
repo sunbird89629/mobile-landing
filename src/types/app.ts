@@ -40,6 +40,7 @@ export interface Screenshots {
 export interface AppHeroProps {
 	title: string;
 	description: string;
+	tags:string[],
 	logo: AppLogo;
 	storeLinks: StoreLinks;
 }
