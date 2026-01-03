@@ -69,6 +69,17 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
     <div class="mx-auto min-h-screen max-w-[800px]">
       <main><slot /></main>
+      
+      <div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="51edece4-6387-457f-bd65-69817fdffa3e"
+  data-page-id="{{ PAGE_ID }}"
+  data-page-url="{{ PAGE_URL }}"
+  data-page-title="{{ PAGE_TITLE }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+
       <Footer />
     </div>
     <BackToTop client:load />
