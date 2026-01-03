@@ -65,21 +65,51 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
       
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
+    <script is:inline src="https://commentkit.ankush.one/bundle.js"></script>
+    <style is:inline>
+      /* Light Mode Styles */
+      :root {
+        --ck-color-primary: #ef4444; /* Match a brand red if applicable, or pick a neutral */
+        --ck-color-bg: #ffffff;
+        --ck-color-text: #111827;
+        --ck-color-border: #e5e7eb;
+        --ck-border-radius: 12px;
+        --ck-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* Dark Mode Styles */
+      .dark :root {
+        --ck-color-bg: #0a0a0a;
+        --ck-color-text: #f9fafb;
+        --ck-color-border: #262626;
+      }
+
+      /* Container spacing */
+      [data-commentkit] {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        padding: 0 1rem;
+      }
+    </style>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
     <div class="mx-auto min-h-screen max-w-[800px]">
       <main><slot /></main>
       
-      <div id="cusdis_thread"
+      <!-- <div id="cusdis_thread"
   data-host="https://cusdis.com"
   data-app-id="51edece4-6387-457f-bd65-69817fdffa3e"
   data-page-id="{{ PAGE_ID }}"
   data-page-url="{{ PAGE_URL }}"
   data-page-title="{{ PAGE_TITLE }}"
 ></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script> -->
+
+<!-- Include the CommentKit JS bundle -->
 
 
+<!-- Add a div where you want to show comments -->
+      <div data-commentkit></div>
       <Footer />
     </div>
     <BackToTop client:load />
