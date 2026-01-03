@@ -12,6 +12,7 @@ import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
 import Lightbox from "@react/interactive/Lightbox";
 import Screenshots from "@react/interactive/Screenshots";
+import Comments from "@react/interactive/Comments";
 
 const { name: title, description, storeLinks, logo } = siteConfig;
 const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from https://cusdis.com
@@ -24,19 +25,7 @@ const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from ht
     <Features items={features} />
     <!-- <Reviews items={reviews} client:visible /> -->
     <FAQ items={faqs} />
-    <!-- <CusdisComments 
-        client:visible 
-        appId={CUSDIS_APP_ID} 
-        host="https://cusdis.com" 
-      /> -->
-    <!-- <section id="comments" class="mt-16">
-      <h2 class="text-2xl font-bold mb-8 text-center">Comments</h2>
-      <CusdisComments 
-        client:visible 
-        appId={CUSDIS_APP_ID} 
-        host="https://cusdis.com" 
-      />
-    </section> -->
+    <Comments client:visible />
   </main>
 </Layout>
 

@@ -21,6 +21,7 @@ This project is a modern, responsive landing page template designed for mobile a
 *   **Start Development Server:** `npm run dev` (Runs at `http://localhost:4321`)
 *   **Build for Production:** `npm run build`
 *   **Preview Production Build:** `npm run preview`
+*   **Build And Deploy To Cloudflare:** `npm run deploy`
 
 ## Project Structure & Configuration
 
@@ -47,3 +48,17 @@ The project is designed for easy configuration through specific files in `src/co
 *   `src/layouts/`: Main page layouts (e.g., `Layout.astro`).
 *   `src/pages/`: Route definitions (`index.astro`, `404.astro`, etc.).
 *   `public/`: Static assets served directly.
+*   
+
+## Third party integrations
+* CommentKit
+   open source comment system
+   github: https://github.com/ankushKun/commentkit
+   office site: https://commentkit.ankush.one/
+   document: https://commentkit.ankush.one/docs
+
+
+## 部署到的 cloudflare 后的访问地址： mt.aaaabb.cc
+
+
+
