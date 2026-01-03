@@ -1,23 +1,32 @@
-/* Light Mode Styles */
 :root {
   --ck-color-primary: #ef4444;
   --ck-color-bg: #ffffff;
   --ck-color-text: #111827;
+  --ck-color-secondary-text: #4b5563;
   --ck-color-border: #e5e7eb;
+  --ck-color-input-bg: #f9fafb;
   --ck-border-radius: 12px;
   --ck-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Dark Mode Styles */
-.dark :root {
-  --ck-color-bg: #0a0a0a;
-  --ck-color-text: #f9fafb;
+/* Specific selector to ensure dark mode overrides work correctly with Astro/Tailwind */
+html.dark,
+.dark {
+  --ck-color-bg: #000000;
+  --ck-color-text: #f3f4f6;
+  --ck-color-secondary-text: #9ca3af;
   --ck-color-border: #262626;
+  --ck-color-input-bg: #0a0a0a;
 }
 
-/* Container spacing */
 .commentkit-wrapper {
   margin-top: 4rem;
   margin-bottom: 4rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  max-width: 100%;
+}
+
+/* Ensure the widget doesn't have its own unexpected borders or backgrounds */
+[data-commentkit] {
+  background-color: transparent !important;
 }
