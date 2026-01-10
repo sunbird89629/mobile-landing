@@ -10,9 +10,9 @@ import { features } from "@config/features";
 import { screenshots } from "@config/screenshots";
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
+import Comments from "@react/interactive/Comments";
 import Lightbox from "@react/interactive/Lightbox";
 import Screenshots from "@react/interactive/Screenshots";
-import Comments from "@react/interactive/Comments";
 
 const { name: title, description, storeLinks, logo, tags } = siteConfig;
 const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from https://cusdis.com
@@ -21,6 +21,15 @@ const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from ht
 <Layout title={title} description={description}>
   <main class="min-h-screen max-w-5xl mx-auto px-4 py-8">
     <AppHero title={title} description={description} storeLinks={storeLinks} logo={logo} tags={tags} />
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Install</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><a href="/altstore_install" class="text-blue-600 hover:underline">AltStore 安装</a></li>
+        <li><a href="/sideloadly_install" class="text-blue-600 hover:underline">SideLoadly</a></li>
+        <li><a href="/livecontainer_install" class="text-blue-600 hover:underline">LiveContainer</a></li>
+        <li><a href="/plumeimpactor_install" class="text-blue-600 hover:underline">PlumeImpactor</a></li>
+      </ul>
+    </section>
     <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
     <Features items={features} />
     <!-- <Reviews items={reviews} client:visible /> -->
