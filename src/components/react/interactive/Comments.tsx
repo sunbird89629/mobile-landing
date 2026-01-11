@@ -16,13 +16,9 @@ const Comments: React.FC = () => {
     }
   }, []);
   return (
-    <section className="mb-12">
-      <div className='mb-4'></div>
-      <h2 className="text-2xl font-semibold mb-4">如果安装遇到遇到了问题，请留言，我会及时解决</h2>
-      <div className="commentkit-wrapper">
+    <div className="commentkit-wrapper">
       <div data-commentkit />
-      </div>
-    </section>
+    </div>
   );
 };
 
