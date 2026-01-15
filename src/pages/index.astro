@@ -23,21 +23,52 @@ const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from ht
     <AppHero title={title} description={description} storeLinks={storeLinks} logo={logo} tags={tags} />
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">App Information</h2>
-      <div>
-        应用信息
+      <div class="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div>
+            <span class="text-gray-500 block mb-1">版本</span>
+            <span class="font-medium">v20.47.3</span>
+          </div>
+          <div>
+            <span class="text-gray-500 block mb-1">大小</span>
+            <span class="font-medium">约 150 MB</span>
+          </div>
+          <div>
+            <span class="text-gray-500 block mb-1">系统要求</span>
+            <span class="font-medium">iOS 14.0+</span>
+          </div>
+          <div>
+            <span class="text-gray-500 block mb-1">更新日期</span>
+            <span class="font-medium">2025-12-25</span>
+          </div>
+        </div>
       </div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Install App</h2>
-      <div>
-        安装过程中遇到任何问题，请在下方留言
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-semibold">Install App</h2>
+        <a href="/how_to_install" class="text-blue-600 hover:underline text-sm font-medium">查看完整安装说明 →</a>
       </div>
-      <ul class="list-disc pl-6 space-y-2">
-        <li><a href="/altstore_install" class="text-blue-600 hover:underline">AltStore 安装</a></li>
-        <li><a href="/sideloadly_install" class="text-blue-600 hover:underline">SideLoadly</a></li>
-        <li><a href="/livecontainer_install" class="text-blue-600 hover:underline">LiveContainer</a></li>
-        <li><a href="/plumeimpactor_install" class="text-blue-600 hover:underline">PlumeImpactor</a></li>
-      </ul>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="/altstore_install" class="flex items-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
+          <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-xl">🛠️</span>
+          </div>
+          <div>
+            <h3 class="font-medium">AltStore 安装</h3>
+            <p class="text-xs text-gray-500">支持无线自动续签</p>
+          </div>
+        </a>
+        <a href="/sideloadly_install" class="flex items-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
+          <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-xl">💻</span>
+          </div>
+          <div>
+            <h3 class="font-medium">Sideloadly 安装</h3>
+            <p class="text-xs text-gray-500">极简操作，成功率高</p>
+          </div>
+        </a>
+      </div>
     </section>
     <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
     <Features items={features} />

@@ -1,99 +1,69 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
-title: How to Install
-description: Guide on how to install signed IPA files using Xcode
+title: 安装指南概览
+description: 了解如何为您的 iOS 设备安装 MeTube (IPA 侧载引导)
 ---
 
-# XCode 安装已签名的 IPA
+# 🚀 安装指南概览
 
-**Last updated:** February 1, 2025
-
-## SideStore / AltStore 笔记：App ID 限制与 IPA 安装
-
-<!-- ![Screenshot](Screenshot%202025-12-25%20at%203.30.26%E2%80%AFAM.jpeg) -->
-
-## 1. App ID 限制说明 (Apple 免费开发者账号)
-
-这是 Apple 免费开发者账号的 App ID 周限额触发问题（SideStore/AltStore 机制相同）。
-
-*   **10 App IDs / 7 天**：在任意滚动 7 天内，最多只能新注册 10 个 App ID。
-*   **1 App ≠ 1 App ID**：只要 IPA 包含 Extensions（扩展），就会额外占用 App ID。SideStore 文档说明 App ID 数取决于扩展数量，且通常一周后才过期。
-*   **实例分析 (MeTube)**：MeTube 通常需要 3 个 App ID（主 App + 2 个扩展），因此如果没有足够的剩余名额（例如剩余 0），则无法安装。
-
-### 提示解读
-> "You can register another App ID in 3 days."
-
-这意味着按 SideStore 当前统计，最早需要等待 **3 天后** 才会自然释放至少 1 个 App ID 名额。
+由于 MeTube 并非通过 App Store 发行，您需要通过“侧载 (Sideloading)”的方式将其安装到 iPhone 或 iPad 上。
 
 ---
 
-## 2. 解决方案 (按优先级排序)
+## 1. 选择适合您的安装工具
 
-### 方案 1：等待自然释放 (最稳妥)
-到 SideStore `My Apps` -> `View App IDs` 查看每个 ID 的到期时间。
-*   **注意**：3 天后可能只释放 1 个名额。如果 MeTube 需要 3 个，可能需要等待更久，直到累计释放 ≥3 个。
+根据您拥有的设备和需求，选择最适合的安装方案：
 
-### 方案 2：启用 "扩展复用主 App ID"
-SideStore 允许扩展复用主 App 的 ID，从而实现 "每个 App 只占用 1 个 App ID"。
-*   **操作**：安装 IPA 弹窗时：
-    *   ✅ 选择：`Keep App Extensions (Use Main Profile)`
-    *   ❌ 不选：`Register App ID for Each Extension`
-*   **⚠️ 副作用**：极少数情况下可能导致扩展功能异常（如文件选择器）。
-*   **前提**：即便如此，你当前仍需至少 1 个可用名额才能开始安装。
-
-### 方案 3：删除已侧载 App (不一定有效)
-App IDs 通常不能手动立即释放。删除 App 后只是不再续期，需等待当前周期结束（7天）才会释放名额。
-
-### 方案 4：彻底解决
-*   **付费账号**：加入 Apple Developer Program（$99/年），解除 3 个 App 和 10 个 App ID 的限制。
-*   **更换 Apple ID**：可以使用另一个 Apple ID 侧载，但设备本身仍受“免费账号可激活 App 数”的限制。
+| 工具 | 推荐指数 | 优点 | 缺点 |
+| :--- | :--- | :--- | :--- |
+| **[AltStore](./altstore_install)** | ⭐⭐⭐⭐⭐ | **最推荐**。支持 Wi-Fi 自动续签，无需长连电脑。 | 首次安装需电脑，App 数量有限制。 |
+| **[Sideloadly](./sideloadly_install)** | ⭐⭐⭐⭐ | 操作极其简单，成功率高，支持 Windows/Mac。 | 每次续签（7天一次）都需连接电脑。 |
+| **[Xcode](./xcode_install)** | ⭐⭐⭐ | 官方工具，最稳定。 | 仅限 Mac，操作门槛较高，需手动签名。 |
+| **全自动/免电脑** | ⭐⭐ | 无需电脑。 | 需购买企业证书或使用易失效的公用证书。 |
 
 ---
 
-## 3. 如何查看已注册的 App IDs
+## 2. 安装前必读：核心限制 (App ID)
 
-在 SideStore 中可以直接查看当前 Apple ID 占用的 App ID 列表。
+无论您使用哪种工具（除非您是付费开发者），都会受限于 Apple 的**免费开发者账号限制**：
 
-### 方法 1：从设置入口
-1. 打开 SideStore -> `Settings` (设置)
-2. 点击你的 Apple ID / Account
-3. 选择 `View App IDs` (或类似选项)
-   * 显示内容包括：App ID (Bundle ID) 及 创建/到期时间。
-
-### 方法 2：从 My Apps 入口
-1. 打开 SideStore -> `My Apps`
-2. 点击右上角齿轮 `⚙️` 或菜单
-3. 选择 `View App IDs`
-
-*注：一个应用可能对应多个 App ID（主程序+插件），数量通常多于已安装的 App 数。*
+*   **7 天有效期**：安装后 App 只能使用 7 天。过期后需使用工具“续签”（重新安装/刷新）。
+*   **3 个 App 限制**：一个设备最多只能同时安装 3 个侧载 App。
+*   **10 个 App ID 限制**：
+    *   Apple 限制每 7 天只能注册 10 个新的 App ID。
+    *   **重点**：MeTube 包含插件（如 iSponsorBlock），通常需要占用 **3 个 App ID**。
+    *   如果您最近安装过其他侧载应用，可能会提示 "App ID limit reached"，此时需等待 7 天名额释放。
 
 ---
 
-## 4. 如何通过 Xcode 安装已签名的 IPA
+## 3. 通用操作步骤
 
-<!-- ![Xcode Install](image.png) -->
+无论选择哪种方式，安装后通常都需要执行以下两步：
 
-如果 IPA 已经签名，可以直接通过 Xcode 安装到真机，无需重新编译。
+### 第一步：信任开发者
+1.  打开 iPhone `设置` -> `通用` -> `VPN 与设备管理`。
+2.  在“开发者 App”下点击您的 **Apple ID**。
+3.  点击 **“信任”**。
 
-### 方法 1：Xcode 设备管理 (推荐)
-1. 连接 iPhone 并“信任此电脑”。
-2. 打开 Xcode -> `Window` -> `Devices and Simulators`。
-3. 左侧选择你的设备 (Devices)。
-4. 在右侧 **Installed Apps** 区域点击 `+` 号。
-5. 选择你的 `.ipa` 文件。
-   * *如果无法选择 IPA，可将其后缀改为 `.zip` 解压，提取 `Payload/YourApp.app`，然后拖入 Installed Apps 列表。*
+### 第二步：开启开发者模式 (iOS 16+)
+1.  打开 iPhone `设置` -> `隐私与安全性`。
+2.  拉到底部，找到 `开发者模式` 并开启。
+3.  按提示重启手机，重启后在弹窗中点击“开启”。
 
-### 方法 2：命令行 (Xcode 15+)
-使用 `devicectl` 工具：
-```bash
-xcrun devicectl list devices
-xcrun devicectl device install app --device <UDID> /path/to/your.ipa
-```
+---
 
-### 常见安装失败原因
-*   **UDID 不匹配**：签名描述文件未包含该手机的 UDID（Ad Hoc/Development 签名必需）。
-*   **证书问题**：证书过期或被撤销。
-*   **开发者模式**：iOS 16+ 需开启开发者模式 (`设置` -> `隐私与安全性` -> `开发者模式`)。
+## 4. 开始安装
 
+请点击下方链接查看详细的图文教程：
 
-<!-- ![alt text](image-1.png) -->
+*   👉 **[使用 AltStore 安装 (推荐)](./altstore_install)**
+*   👉 **[使用 Sideloadly 安装](./sideloadly_install)**
+*   👉 **[使用 Xcode 安装](./xcode_install)**
+
+---
+
+## 常见问题排查
+
+*   **安装时提示“需等待 3 天/7 天”？** 请看上文 [App ID 限制](#2-安装前必读核心限制-app-id)。
+*   **应用闪退？** 通常是 7 天签名已过期，请连接电脑重新续签。
+*   **无法发现设备？** 请确保电脑已安装最新版 iTunes (Win) 或已在 Finder 中信任设备 (Mac)。

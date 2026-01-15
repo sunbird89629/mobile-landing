@@ -1,99 +1,55 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
-title: Xcode Install Guide
-description: Guide on how to install signed IPA files using Xcode
+title: Xcode 安装教程
+description: 使用 Xcode 将已签名的 IPA 文件安装到 iOS 设备
 ---
 
-# XCode 安装已签名的 IPA
+# 使用 Xcode 安装已签名的 IPA
 
-**Last updated:** February 1, 2025
+**适用平台**：macOS (需安装 Xcode)  
+**准备项**：已签名的 IPA 文件、数据线、Mac 电脑
 
-## SideStore / AltStore 笔记：App ID 限制与 IPA 安装
+如果您已经拥有一个通过其他方式签名（如自建签名服务或 Ad Hoc 签名）的 IPA 文件，可以使用 Xcode 将其直接“推送”到您的 iOS 设备上。
 
-<!-- ![Screenshot](Screenshot%202025-12-25%20at%203.30.26%E2%80%AFAM.jpeg) -->
-
-## 1. App ID 限制说明 (Apple 免费开发者账号)
-
-这是 Apple 免费开发者账号的 App ID 周限额触发问题（SideStore/AltStore 机制相同）。
-
-*   **10 App IDs / 7 天**：在任意滚动 7 天内，最多只能新注册 10 个 App ID。
-*   **1 App ≠ 1 App ID**：只要 IPA 包含 Extensions（扩展），就会额外占用 App ID。SideStore 文档说明 App ID 数取决于扩展数量，且通常一周后才过期。
-*   **实例分析 (MeTube)**：MeTube 通常需要 3 个 App ID（主 App + 2 个扩展），因此如果没有足够的剩余名额（例如剩余 0），则无法安装。
-
-### 提示解读
-> "You can register another App ID in 3 days."
-
-这意味着按 SideStore 当前统计，最早需要等待 **3 天后** 才会自然释放至少 1 个 App ID 名额。
+> [!TIP]
+> 如果您是想通过自己的 Apple ID 进行签名并安装，建议优先使用 **[AltStore](./altstore_install)** 或 **[Sideloadly](./sideloadly_install)**，因为 Xcode 手动安装过程较为繁琐且不支持自动续签。
 
 ---
 
-## 2. 解决方案 (按优先级排序)
+## 方法 1：使用 Xcode 视觉化管理 (推荐)
 
-### 方案 1：等待自然释放 (最稳妥)
-到 SideStore `My Apps` -> `View App IDs` 查看每个 ID 的到期时间。
-*   **注意**：3 天后可能只释放 1 个名额。如果 MeTube 需要 3 个，可能需要等待更久，直到累计释放 ≥3 个。
+这是最直观的方法，适用于大多数用户。
 
-### 方案 2：启用 "扩展复用主 App ID"
-SideStore 允许扩展复用主 App 的 ID，从而实现 "每个 App 只占用 1 个 App ID"。
-*   **操作**：安装 IPA 弹窗时：
-    *   ✅ 选择：`Keep App Extensions (Use Main Profile)`
-    *   ❌ 不选：`Register App ID for Each Extension`
-*   **⚠️ 副作用**：极少数情况下可能导致扩展功能异常（如文件选择器）。
-*   **前提**：即便如此，你当前仍需至少 1 个可用名额才能开始安装。
+1.  **连接设备**：使用数据线将 iPhone/iPad 连接到 Mac，并在手机上点击“信任此电脑”。
+2.  **打开设备管理**：启动 Xcode，在顶部菜单栏选择 `Window` -> `Devices and Simulators`。
+3.  **选择设备**：在左侧列表中点击您的 iPhone。
+4.  **安装应用**：
+    *   在右侧的 **Installed Apps** 区域下方，点击 `+` (加号)。
+    *   在文件选择框中，找到并选择您的 `.ipa` 文件。
+    *   Xcode 将开始传输并安装应用。完成后，图标会出现在手机桌面上。
 
-### 方案 3：删除已侧载 App (不一定有效)
-App IDs 通常不能手动立即释放。删除 App 后只是不再续期，需等待当前周期结束（7天）才会释放名额。
-
-### 方案 4：彻底解决
-*   **付费账号**：加入 Apple Developer Program（$99/年），解除 3 个 App 和 10 个 App ID 的限制。
-*   **更换 Apple ID**：可以使用另一个 Apple ID 侧载，但设备本身仍受“免费账号可激活 App 数”的限制。
+**技巧**：如果点击 `+` 号无法选择您的 IPA 文件，可以尝试将 `.ipa` 后缀改为 `.zip` 并解压，找到 `Payload` 文件夹内的 `.app` 文件，直接将其拖入 Xcode 的 **Installed Apps** 列表中。
 
 ---
 
-## 3. 如何查看已注册的 App IDs
+## 方法 2：使用命令行工具 (Xcode 15+)
 
-在 SideStore 中可以直接查看当前 Apple ID 占用的 App ID 列表。
+如果您熟悉终端操作，可以使用 Xcode 自带的 `devicectl` 工具。
 
-### 方法 1：从设置入口
-1. 打开 SideStore -> `Settings` (设置)
-2. 点击你的 Apple ID / Account
-3. 选择 `View App IDs` (或类似选项)
-   * 显示内容包括：App ID (Bundle ID) 及 创建/到期时间。
-
-### 方法 2：从 My Apps 入口
-1. 打开 SideStore -> `My Apps`
-2. 点击右上角齿轮 `⚙️` 或菜单
-3. 选择 `View App IDs`
-
-*注：一个应用可能对应多个 App ID（主程序+插件），数量通常多于已安装的 App 数。*
+1.  **查找设备 UDID**：
+    ```bash
+    xcrun devicectl list devices
+    ```
+2.  **安装 IPA**：
+    ```bash
+    xcrun devicectl device install app --device <您的设备UDID> /路径/到/您的.ipa
+    ```
 
 ---
 
-## 4. 如何通过 Xcode 安装已签名的 IPA
+## 常见安装失败原因
 
-<!-- ![Xcode Install](image.png) -->
-
-如果 IPA 已经签名，可以直接通过 Xcode 安装到真机，无需重新编译。
-
-### 方法 1：Xcode 设备管理 (推荐)
-1. 连接 iPhone 并“信任此电脑”。
-2. 打开 Xcode -> `Window` -> `Devices and Simulators`。
-3. 左侧选择你的设备 (Devices)。
-4. 在右侧 **Installed Apps** 区域点击 `+` 号。
-5. 选择你的 `.ipa` 文件。
-   * *如果无法选择 IPA，可将其后缀改为 `.zip` 解压，提取 `Payload/YourApp.app`，然后拖入 Installed Apps 列表。*
-
-### 方法 2：命令行 (Xcode 15+)
-使用 `devicectl` 工具：
-```bash
-xcrun devicectl list devices
-xcrun devicectl device install app --device <UDID> /path/to/your.ipa
-```
-
-### 常见安装失败原因
-*   **UDID 不匹配**：签名描述文件未包含该手机的 UDID（Ad Hoc/Development 签名必需）。
-*   **证书问题**：证书过期或被撤销。
-*   **开发者模式**：iOS 16+ 需开启开发者模式 (`设置` -> `隐私与安全性` -> `开发者模式`)。
-
-
-<!-- ![alt text](image-1.png) -->
+*   **UDID 不匹配**：最常见原因。如果 IPA 是 Ad Hoc 签名的，该签名必须包含您当前设备的 UDID 才能安装成功。
+*   **签名失效/证书撤销**：IPA 的证书可能已经到期或被 Apple 封禁。
+*   **未开启开发者模式**：iOS 16 及以上系统，必须在 `设置` -> `隐私与安全性` -> `开发者模式` 中将其开启，否则应用无法运行。
+*   **App ID 限制**：如果您使用的是免费账号签名，请确保未超出 Apple 的 App ID 名额限制。详见：**[安装限制说明](./how_to_install#2-安装前必读核心限制-app-id)**。
