@@ -1,63 +1,41 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
-title: Privacy Policy
-description: Privacy Policy for the application - How we handle and protect your data
+title: 隐私政策
+description: MeTube 应用程序的隐私政策 - 我们如何处理您的数据
 ---
 
-# Privacy Policy
+# 隐私政策
 
-**Last updated:** February 1, 2025
+**最后更新日期：** 2026年1月15日
 
-## Data Collection
+## 引言
 
-We collect:
+欢迎使用 **MeTube**（以下简称“本应用”）。本应用是基于开源项目 YTLitePlus 编译构建的 YouTube iOS 客户端增强版本。我们非常重视您的隐私保护。
 
-- Anonymous usage metrics
-- App performance data
-- Device information
-- Error reports
+## 数据收集与使用
 
-## Data Usage
+### 1. 个人信息
+本应用**不会**主动收集、存储或传输您的任何个人身份信息（PII）。
+*   **Google 账户**：如果您选择登录 Google 账户，所有的登录过程和数据交互均直接通过 Google 官方接口进行。本应用不保存、也不可能获取您的账户密码。
+*   **使用数据**：您的观看历史、订阅内容、点赞等数据均由 YouTube 官方服务器管理，受 Google 隐私政策约束。
 
-We use collected data to:
+### 2. 本地设置
+本应用会将您的偏好设置（如：是否开启去广告、默认播放画质、主题颜色等）存储在您设备的**本地存储**中。这些数据不会上传到我们的服务器。
 
-- Improve app performance
-- Fix technical issues
-- Enhance features
-- Optimize experience
+### 3. 第三方服务
+本应用集成了以下开源组件，它们可能会有自己的数据处理方式：
+*   **YTLitePlus / YTLite**：核心增强功能。
+*   **iSponsorBlock**：用于跳过视频中的赞助片段。该插件可能会匿名查询 SponsorBlock 的公共数据库以获取时间戳信息。
+*   **YouPiP**：启用画中画功能。
 
-## Security Measures
+## 数据安全
 
-We protect your data with:
+由于本应用主要作为一个客户端外壳运行，您的核心数据安全主要依赖于 Google 的安全机制。我们建议您开启 Google 账户的两步验证以提高安全性。
 
-- Encryption protocols
-- Regular security checks
-- Secure storage systems
+## 变更说明
 
-## Data Sharing Policy
+我们需要时可能会更新本隐私政策。更新后的版本将在本页面发布，并在生效日期更新。
 
-We do not sell your data. We share data only:
+## 联系我们
 
-- With essential services
-- When legally required
-- When you request it
-
-## User Rights
-
-You can:
-
-- View your data
-- Delete your data
-- Stop analytics
-- Download your data
-
-## Policy Updates
-
-We will notify you of policy changes through our app or email.
-
-## Contact
-
-Questions? Reach us at:
-
-- privacy@example.com
-- help.example.com
+如果您对本隐私政策有任何疑问，请通过 GitHub 仓库提交 Issue 与我们联系。

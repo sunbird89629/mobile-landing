@@ -1,58 +1,40 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
-title: Terms of Service
-description: Terms of Service for the application - Rules and guidelines for using our service
+title: 服务条款
+description: MeTube 应用程序的使用规则与免责声明
 ---
 
-# Terms of Service
+# 服务条款
 
-**Effective date:** February 1, 2025
+**生效日期：** 2026年1月15日
 
-## Acceptance
+## 1. 接受条款
 
-By using this service, you agree to these terms.
+下载、安装或使用 **MeTube**（以下简称“本应用”），即表示您同意遵守本服务条款。如果您不同意这些条款，请勿使用本应用。
 
-## Account Rules
+## 2. 服务说明
 
-- Provide accurate information
-- Keep your account secure
-- One account per person
-- We may terminate accounts that violate terms
+MeTube 是一个基于开源项目 YTLitePlus 编译的非官方 YouTube iOS 客户端。本应用旨在提供增强的观看体验（如去广告、后台播放等），供学习和研究使用。
 
-## Billing
+## 3. 免责声明
 
-- Prices in USD
-- Auto-renewal enabled
-- Cancel anytime
-- No partial refunds
+*   **非官方应用**：本应用与 Google LLC 或 YouTube LLC 没有任何关联、授权、认可或官方联系。"YouTube" 是 Google LLC 的注册商标。
+*   **使用风险**：本应用按“原样”提供，不提供任何形式的明示或暗示保证。开发者不对因使用本应用导致的任何账户封禁、数据丢失或设备损坏承担责任。**您需自行承担使用非官方客户端可能带来的风险。**
+*   **签名与安装**：用户需自行解决 iOS 应用的签名和安装问题（如使用 AltStore, Sideloadly 等）。我们不保证应用在所有 iOS 版本或设备上均能稳定运行。
 
-## Usage Rules
+## 4. 用户行为规范
 
-Do not:
+您同意不将本应用用于任何非法用途，包括但不限于：
+*   侵犯他人的知识产权。
+*   传播恶意软件或病毒。
+*   干扰 YouTube 平台的正常运行。
 
-- Break laws
-- Infringe copyrights
-- Share harmful content
-- Hack or disrupt service
+## 5. 知识产权
 
-## Content Policy
+本应用基于开源社区的贡献构建。
+*   **YTLitePlus** 及其组件遵循其各自的开源协议（如 GPL v3, MIT 等）。
+*   本应用及其文档的原创内容保留所有权，但欢迎社区贡献。
 
-No uploading of:
+## 6. 条款修改
 
-- Illegal materials
-- Harmful content
-- Spam
-- Malware
-
-## Legal Notes
-
-- We own app content
-- You own your content
-- Service provided "as is"
-- No uptime guarantee
-
-## Contact
-
-- Email: legal@example.com
-- Address: 123 Tech Street, Suite 100
-- Phone: (555) 123-4567
+我们保留随时修改本服务条款的权利。修改后的条款一经发布即刻生效。继续使用本应用即视为您接受修改后的条款。
