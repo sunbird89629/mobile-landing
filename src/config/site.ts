@@ -3,7 +3,7 @@ import { socialLinks } from "./socialLinks";
 export const siteConfig = {
 	name: "MeTube",
 	// description: "YouTube for iOS, supercharged with @dayanch96 YouTube Plus (ex. YTLite) and several other tweaks.",
-	description: "官方 YouTube iOS App 深度优化的增强版应用。解锁几乎所有的会员功能，甚至包含社区维护的许多实用功能。",
+	description: "基于开源项目 YTLitePlus 编译构建的 YouTube iOS 增强版。集成无广告、后台播放、视频下载等多项高级功能。",
 	tags:[
 		"免广告",
 		"后台播放",
