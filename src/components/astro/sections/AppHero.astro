@@ -14,7 +14,7 @@ const { title, description, tags = [], storeLinks, logo } = Astro.props;
 <div class="mb-16 flex flex-col items-center md:items-start md:flex-row gap-8">
 	<div class="flex-shrink-0 md:self-center">
 		<div>
-			<img src={logo} />
+			<img src={logo} alt={`${title} App Icon`} width="128" height="128" loading="eager" fetchpriority="high" />
 		</div>
 	</div>
 

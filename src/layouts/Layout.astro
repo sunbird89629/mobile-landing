@@ -41,6 +41,26 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
     <link rel="icon" sizes="192x192" href={siteConfig.logo} />
     <link rel="icon" sizes="512x512" href={siteConfig.logo} />
     <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconURL} />
+    <link rel="manifest" href="/manifest.json" />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": siteConfig.name,
+        "description": description || siteConfig.description,
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "iOS",
+        "image": ogImageURL,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+        },
+      })}
+    />
     
     <script is:inline>
       // if ('scrollRestoration' in history) {
