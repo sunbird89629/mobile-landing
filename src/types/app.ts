@@ -1,3 +1,4 @@
+import type { ImageMetadata } from "astro";
 import type { IconType } from "react-icons";
 
 export type AppLogo = string;
@@ -15,7 +16,6 @@ export interface Feature {
 
 export interface FAQ {
 	question: string;
-	href:string;
 	answer: string;
 }
 
@@ -32,6 +32,11 @@ export interface SocialLink {
 	label: string;
 }
 
+export interface ScreenshotsConfig {
+	iphone: (string | ImageMetadata)[];
+	ipad: (string | ImageMetadata)[];
+}
+
 export interface Screenshots {
 	iphone: string[];
 	ipad: string[];
@@ -40,7 +45,7 @@ export interface Screenshots {
 export interface AppHeroProps {
 	title: string;
 	description: string;
-	tags:string[],
+	tags: string[] | readonly string[];
 	logo: AppLogo;
 	storeLinks: StoreLinks;
 }

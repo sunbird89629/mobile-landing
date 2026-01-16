@@ -2,6 +2,7 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
+import { getImage } from "astro:assets";
 import AppHero from "@astro/sections/AppHero.astro";
 import FAQ from "@astro/sections/FAQ.astro";
 import Features from "@astro/sections/Features.astro";
@@ -16,6 +17,32 @@ import Screenshots from "@react/interactive/Screenshots";
 
 const { name: title, description, storeLinks, logo, tags } = siteConfig;
 const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from https://cusdis.com
+
+// Optimize images
+const optimizeImages = async (images: typeof screenshots) => {
+  const optimizedIphone = await Promise.all(
+    images.iphone.map(async (img) => {
+      if (typeof img === "string") return img;
+      const optimized = await getImage({ src: img, format: "webp", quality: 80 });
+      return optimized.src;
+    })
+  );
+
+  const optimizedIpad = await Promise.all(
+    images.ipad.map(async (img) => {
+      if (typeof img === "string") return img;
+      const optimized = await getImage({ src: img, format: "webp", quality: 80 });
+      return optimized.src;
+    })
+  );
+
+  return {
+    iphone: optimizedIphone,
+    ipad: optimizedIpad,
+  };
+};
+
+const optimizedScreenshots = await optimizeImages(screenshots);
 ---
 
 <Layout title={title} description={description}>
@@ -81,7 +108,7 @@ const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from ht
         </a>
       </div>
     </section>
-    <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
+    <div class="mb-16"><Screenshots images={optimizedScreenshots} client:load /></div>
     <Features items={features} />
     <!-- <Reviews items={reviews} client:visible /> -->
     <FAQ items={faqs} />
@@ -89,7 +116,7 @@ const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from ht
   </main>
 </Layout>
 
-<Lightbox images={screenshots} client:load />
+<Lightbox images={optimizedScreenshots} client:load />
 
 <style is:global>
   .screenshots-scroll {
