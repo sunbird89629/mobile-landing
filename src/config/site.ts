@@ -10,7 +10,19 @@ export const siteConfig = {
 		"自动跳过片头/片尾/赞助广告内容",
 		"视频下载"
 	],
-	keywords: ["YouTube", "Ad Block", "Tweak", "Play Blackground"],
+	keywords: [
+		"YouTube",
+		"Ad Block",
+		"Tweak",
+		"Play Background",
+		"YouTube去广告",
+		"YouTube后台播放",
+		"YouTube下载",
+		"iOS YouTube Vanced",
+		"YTLitePlus",
+		"iSponsorBlock",
+		"YouPiP"
+	],
 	logo: "/assets/favicon-512.png",
 	storeLinks: {
 		apple: "https://pub-29b0117184894cc286590f0d348135f7.r2.dev/metube/20_47_3/mt_tweaked.ipa",
