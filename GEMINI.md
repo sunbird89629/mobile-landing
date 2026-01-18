@@ -57,6 +57,10 @@ The project is designed for easy configuration through specific files in `src/co
    office site: https://commentkit.ankush.one/
    document: https://commentkit.ankush.one/docs
 
+## 这是一个类似于开源项目的项目，尽量不要给用户以商业化项目的感觉
+
+## 这个项目是一个个人项目，尽量不要出现我们，给人一种组织的感觉
+
 
 ## 部署到的 cloudflare 后的访问地址： mt.aaaabb.cc
 

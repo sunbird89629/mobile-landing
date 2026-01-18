@@ -2,7 +2,6 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import { getImage } from "astro:assets";
 import AppHero from "@astro/sections/AppHero.astro";
 import FAQ from "@astro/sections/FAQ.astro";
 import Features from "@astro/sections/Features.astro";
@@ -14,6 +13,7 @@ import Layout from "@layouts/Layout.astro";
 import Comments from "@react/interactive/Comments";
 import Lightbox from "@react/interactive/Lightbox";
 import Screenshots from "@react/interactive/Screenshots";
+import { getImage } from "astro:assets";
 
 const { name: title, description, storeLinks, logo, tags } = siteConfig;
 const CUSDIS_APP_ID = "51edece4-6387-457f-bd65-69817fdffa3e"; // Get one from https://cusdis.com
@@ -72,14 +72,48 @@ const optimizedScreenshots = await optimizeImages(screenshots);
       </div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Technical Source</h2>
+      <h2 class="text-2xl font-semibold mb-4">关于本项目</h2>
       <div class="bg-blue-50 dark:bg-blue-900/10 rounded-2xl p-6 border border-blue-100 dark:border-blue-900/30">
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-          MeTube 本质上是基于优秀的开源项目 <a href="https://github.com/YTLitePlus/YTLitePlus" target="_blank" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">YTLitePlus</a> 编译构建而成的。
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          本项目基于开源项目 YTLitePlus 构建。自行编译对许多用户来说门槛较高，因此我维护了这个仓库，定期发布编译好的 IPA 文件，方便大家直接安装使用。
         </p>
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mt-2">
-          它集成了 YTLite、iSponsorBlock、YouPiP、YTUHD 等多个知名插件，并由社区开发者持续维护，以提供最佳的 YouTube iOS 增强体验。
-        </p>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-sm mr-3 mt-0.5">1</div>
+            <div>
+              <h3 class="font-medium text-gray-900 dark:text-white">预编译版本</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">提供构建好的 IPA 文件，省去配置开发环境和处理依赖报错的繁琐过程，下载即用。</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-sm mr-3 mt-0.5">2</div>
+            <div>
+              <h3 class="font-medium text-gray-900 dark:text-white">持续跟进</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">我会跟随上游项目更新，并针对编译过程中可能出现的问题进行调整，确保安装包的可用性。</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-sm mr-3 mt-0.5">3</div>
+            <div>
+              <h3 class="font-medium text-gray-900 dark:text-white">问题复现</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">如果您在使用中遇到闪退或异常，欢迎提交 Issue。我会尽量解决特定的兼容性问题。</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-sm mr-3 mt-0.5">4</div>
+            <div>
+              <h3 class="font-medium text-gray-900 dark:text-white">文档沉淀</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">我们会收集社区反馈的常见安装和使用问题，整理并更新到 FAQ 文档中。</p>
+            </div>
+          </li>
+        </ul>
+        <div class="h-6"></div>
+        <p class="text-red-600 dark:text-red-400 leading-relaxed mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 mr-1 align-text-bottom" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          如果您遇到未收录的问题，欢迎在页面底部的留言区反馈。
+        </p> 
       </div>
     </section>
     <section class="mb-12">
@@ -112,7 +146,11 @@ const optimizedScreenshots = await optimizeImages(screenshots);
     <Features items={features} />
     <!-- <Reviews items={reviews} client:visible /> -->
     <FAQ items={faqs} />
-    <Comments client:visible />
+    <div class="h-6"/>
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold mb-4">反馈与交流</h2>
+      <Comments client:visible />
+    </div>
   </main>
 </Layout>
 
